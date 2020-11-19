@@ -1,5 +1,5 @@
 # Overview
-This project makes use of Locust, a Python based load testing framework. See [locust.io](https://locust.io/) for more info and docs. You can run Locust on it's own via the Locust CLI, but it really shines when you use Docker to spin up a set of distributed containers. This project can be further extended with Kubernetes support as well ().
+This project makes use of Locust, a Python based load testing framework. See [locust.io](https://locust.io/) for more info and docs. You can run Locust on it's own via the Locust CLI, but it really shines when you use Docker to spin up a set of distributed containers. This project can be further extended with [Kubernetes support as well](https://docs.locust.io/en/stable/running-locust-docker.html#running-a-distributed-load-test-on-kubernetes).
 
 Tests are stored in `tests.py` as "User classes" broken up into individual test tasks.
 
