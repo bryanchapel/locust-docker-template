@@ -1,0 +1,6 @@
+python3-lxml
+libpq-dev
+gcc
+libpython3.7-dev
+libpcre3-dev
+git

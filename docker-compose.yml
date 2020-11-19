@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  master:
+    container_name: locust-master
+    ports:
+     - "8089:8089"
+    volumes:
+      - ./:/locust
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /locust
+    env_file: .env
+    command: locust --master -H http://master:8089 --master-bind-port=5557 --expect-workers=$WORKERS_EXPECTED $HEADLESS -u $USERS -r $USER_SPAWN_RATE $RUN_TIME --stop-timeout=$STOP_TIMEOUT
+
+  worker:
+    volumes:
+      - ./:/locust
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /locust
+    env_file: .env
+    command: locust $TEST_CLASSES --worker --master-host=master --master-port=5557
